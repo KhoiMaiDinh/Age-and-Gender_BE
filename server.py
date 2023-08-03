@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import os
 from prediction import getAgeGender
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -30,6 +31,5 @@ def predict():
         # return "hi"
 
 
-if __name__ == "__main__":
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
+def create_app():
+    return app
